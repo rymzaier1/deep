@@ -1,76 +1,113 @@
-# 🤟 Sign Language Recognition
+Sign Language Recognition using Deep Learning
+Project Overview
 
-Deep Learning project for recognizing sign language alphabet letters using CNN.
+This project focuses on recognizing American Sign Language (ASL) hand gestures using Deep Learning techniques.
 
----
+The system can:
 
-# 📌 Project Description
+Predict sign language letters from images
+Use a webcam in real time with Streamlit
+Upload custom images for prediction
 
-This project uses Deep Learning and Computer Vision to classify hand signs representing alphabet letters.
+The project compares multiple Deep Learning architectures including:
 
-The model is trained on the Sign Language MNIST dataset.
+CNN
+ResNet18
+LSTM
 
----
+The final selected model is ResNet18 due to its superior accuracy.
 
-# 📂 Dataset
+Dataset
 
 Dataset used:
 
-- Sign Language MNIST
+Sign Language MNIST Dataset
+
+The dataset contains:
+
+28x28 grayscale hand gesture images
+24 ASL classes (A–Y excluding J and Z)
 
 Files:
 
-- sign_mnist_train.csv
-- sign_mnist_test.csv
+sign_mnist_train.csv
+sign_mnist_test.csv
+Project Structure
+SignLanguageRecognition/
+│
+├── drafts/
+│   ├── draft_cnn.ipynb
+│   ├── draft_resnet.ipynb
+│   ├── draft_lstm.ipynb
+│   └── hyperparameter_tuning.ipynb
+│
+├── final_notebook.ipynb
+├── app.py
+├── requirements.txt
+├── model_final.pth
+├── README.md
+├── presentation.pptx
+│
+├── sign_mnist_train.csv
+└── sign_mnist_test.csv
+Deep Learning Pipeline
+1. Data Preprocessing
+CSV loading
+Image normalization
+Tensor conversion
+Train/Test split
+2. Data Augmentation
+Random rotation
+Horizontal flip
+Random affine transformation
+3. Models Tested
+CNN Baseline
 
----
-
-# 🧠 Architectures Tested
-
-## 1. CNN Baseline
 Simple convolutional neural network.
 
-## 2. CNN + Dropout
-Added dropout for regularization.
+ResNet18
 
-## 3. ResNet18
-Transfer learning using pretrained ResNet.
+Transfer Learning using pretrained ResNet18.
 
-## 4. LSTM
-Sequence-based model for comparison.
+LSTM
 
----
+Sequence-based architecture tested for comparison.
 
-# 📈 Results
+Final Model
 
-| Model | Validation Accuracy |
-|---|---|
-| CNN | 89% |
-| ResNet18 | 96% |
-| LSTM | 72% |
+The final selected model:
 
----
+ResNet18
 
-# 📊 Evaluations
+Reasons:
 
-- Accuracy
-- Confusion Matrix
-- Classification Report
-- Learning Curves
+Highest validation accuracy
+Better generalization
+Stable predictions
 
----
+Final accuracy:
 
-# 🚀 Streamlit Application
+~98%
+Evaluation Metrics
 
-The project includes a Streamlit app for online inference.
+The project includes:
 
-Users can upload an image and predict the sign letter.
+Accuracy curves
+Loss curves
+Confusion matrix
+ROC Curve
+Model comparison
+Streamlit Application
 
----
+The Streamlit app allows:
 
-# ▶️ Run Project
+Image upload prediction
+Run locally:
 
-Install requirements:
-
-```bash
+streamlit run app.py
+Installation
+Clone repository
+git clone YOUR_GITHUB_LINK
+cd SignLanguageRecognition
+Install dependencies
 pip install -r requirements.txt
